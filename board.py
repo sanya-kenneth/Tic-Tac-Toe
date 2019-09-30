@@ -10,7 +10,7 @@ class Board(object):
     """
 
     def __init__(self):
-        self.board = PrettyTable(header=False, padding_width=2)
+        self.board = PrettyTable(header=False, padding_width=2, start=0, end=9)
         self.separation_line = "---"
 
     def display_board(self):
@@ -23,6 +23,12 @@ class Board(object):
         self.board.add_row(self.separation_line)
         self.board.add_row(grid_spaces[6:])
         return self.board
+
+    def clear_board(self):
+        """
+        Clear game board
+        """
+        self.board.clear_rows()
 
     def update_board(self, choice, player):
         """
